@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>URL Encoder/Decoder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <div class="header">
+    <h1><span class="prefix">Tools</span> URL Encode / Decode</h1>
+  </div>
+
+  <div class="content">
+    <div class="container center">
+      <textarea id="text-input" class="input" rows="40" cols="120"></textarea>
+      <div class="controls">
+        <button onclick="split()" class="button" title="Split text into lines for each ? and &">Split</button>
+        <button onclick="encode()" class="button" title="Encode text">Encode</button>
+        <button onclick="decode()" class="button" title="Decode test">Decode</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function replaceTextInput(transform) {
+      const input = document.getElementById('text-input');
+      input.value = transform(input.value);
+    }
+
+    function split() {
+      replaceTextInput((input) => {
+        return input.replaceAll(/(\?|&)/g, '\n');
+      });
+    }
+
+    function encode() {
+      replaceTextInput(encodeURIComponent);
+    }
+
+    function decode() {
+      replaceTextInput(decodeURIComponent);
+    }
+  </script>
+</body>
+
+</html>

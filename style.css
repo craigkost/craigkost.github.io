@@ -1,7 +1,122 @@
+:root {
+  --bg-color-1: #efefef;
+  --bg-color-2: #ffffff;
+  --fg-color-1: #000000;
+  --fg-color-2: #eaeaea;
+  --fg-color-3: #4f6d7a;
+  --fg-color-4: #dd6e42;
+  --btn-bg-color: #e8dab2;
+  --btn-bg-color-hover: #c0d6df;
+}
+
 html {
-  font-family: sans-serif;
+  background-color: var(--bg-color-1);
+  color: var(--fg-color-1);
+  font-family: "Roboto", sans-serif;
 }
 
 body {
+  height: 100%;
+  margin: 0;
+}
+
+.header {
+  align-self: stretch;
+  margin: 0;
+  padding: 16px;
+  background-color: var(--bg-color-2);
+
+  & h1 {
+    margin: 0;
+    font-size: 150%;
+  }
+
+  & .prefix {
+    color: var(--fg-color-4);
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background-color: var(--bg-color-2);
+  display: inline-block;
+  padding: 16px;
+  margin: 16px;
+  border-radius: 12px;
+}
+
+.chat-bubble {
+  background-color: var(--bg-color-2);
+  display: inline-block;
+  padding: 16px;
+  margin: 16px;
+  border-radius: 12px;
+
+  & strong {
+    color: var(--fg-color-3);
+  }
+
+  & em {
+    color: var(--fg-color-3);
+    font-style: normal;
+  }
+
+  &:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 7px solid var(--bg-color-2);
+    border-right: 7px solid transparent;
+    border-top: 7px solid var(--bg-color-2);
+    border-bottom: 7px solid transparent;
+    left: 24px;
+    bottom: -12px;
+  }
+}
+
+.controls {
+  margin-top: 10px;
   text-align: center;
+
+  & .button {
+    margin: 0 5px;
+  }
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button {
+  background-color: var(--btn-bg-color);
+  color: var(--fg-color-1);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 900;
+
+  &:hover {
+    background-color: var(--btn-bg-color-hover);
+    cursor: pointer;
+  }
+}
+
+.input {
+  border-color: var(--fg-color-2);
+
+  &:focus-visible {
+    border-width: 1px;
+    outline: none !important;
+  }
 }
